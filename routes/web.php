@@ -21,11 +21,13 @@ Route::get('ch', function () {
     
 // })->name('inde');
 
-
-
-Route::get('{any}', function () {
+Route::get('/', function(){
     return view('order');
-})->where('any', '.*');
+})->middleware('auth');
+
+// Route::get('{any}', function () {
+//     return view('order')->middleware('auth');
+// })->where('any', '.*');
 
 Route::get('/check', function () {
     return view('check');

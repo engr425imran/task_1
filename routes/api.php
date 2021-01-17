@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 // Route::resource('orders', OrderController::class);
 
-Route:: get('/orders/{id}/edit', [OrderController::class, 'edit']);
+Route:: get('/orders/{id}/edit', [OrderController::class, 'edit'])->middleware('auth');
 
-Route:: get('orders.index', [OrderController::class, 'index']);
+Route:: get('orders.index', [OrderController::class, 'index'])->middleware('auth');
 
-Route:: get('orders.create', [OrderController::class, 'create']);
-Route:: put('orders/{id}', [OrderController::class, 'update']);
+Route:: get('orders.create', [OrderController::class, 'create'])->middleware('auth');
+Route:: put('orders/{id}', [OrderController::class, 'update'])->middleware('auth');
 
-Route:: post('orders.store', [OrderController::class, 'store']);
+Route:: post('orders.store', [OrderController::class, 'store'])->middleware('auth');
 
 Route:: delete('orders.destroy/{id}', [OrderController::class, 'destroy']);
 
